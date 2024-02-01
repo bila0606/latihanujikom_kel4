@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login_logout_registrasi', function () {
+Route::get('/login', function () {
     return view('login_logout_registrasi');
 });
+
+
+Route::get('/sesi', [SessionController::class, 'index']);
+Route::post('/sesi/login', [SessionController::class, 'login']);
