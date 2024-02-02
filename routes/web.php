@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//view welcome
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/login', function () {
-    return view('login_logout_registrasi');
-});
+    return view('home', ['title' => 'Home']);
+})->name('home');
 
-
-Route::get('/sesi', [SessionController::class, 'index']);
-Route::post('/sesi/login', [SessionController::class, 'login']);
+Route::get('register', [UserController::class, 'register'])->name('register');
+Route::post('register', [UserController::class, 'register_action'])->name('register.action');
+Route::get('login', [UserController::class, 'login'])->name('login');
+Route::post('login', [UserController::class, 'login_action'])->name('login.action');
