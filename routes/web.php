@@ -20,4 +20,5 @@ use Illuminate\Support\Facades\Route;
 Route::resource('siswa', SiswaController::class);
 
 Route::get('/sesi', [SessionController::class, 'index']);
+Route::get('/sesi/logout', [SessionController::class, 'logout']);
 Route::post('/sesi/login', [SessionController::class, 'login']);

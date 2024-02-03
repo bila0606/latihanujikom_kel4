@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class SessionController extends Controller
 {
@@ -16,33 +14,30 @@ class SessionController extends Controller
     // akan melakukan otentikasi dari email dan password di bagian fungsi index
     function login(Request $request)
     {
-        Session::flash('email' ,$request->email);
+        Session::flash('email, $request->email');
         $request->validate([
             'email'=>'required',
             'password'=>'required'
+
         ],[
-            //menampilkan pesan error
-            'email.required'=>'Email wajib diisi',
-            'password.required'=>'Password wajib diisi',
+            'email.required'=> 'Email wajib diisi',
+            'password.required'=> 'password wajib diisi',
+
         ]);
 
-        //otentikasi 
         $infologin = [
-            'email'=>$request->email,
-            'password'=>$request->password
-            
+            'email => $require->email',
+            'password => $require->password'
         ];
-
-        if(Auth::attempt($infologin)){
-            //kalau otentikasi sukses (g d pke)
+         if (Auth::attempt($infologin)) {
+            //kalau otentikasi sukses
             // return 'sukses';
-            return redirect('siswa')->with('success', 'Berhasil login');
-
-        } else {
-            //kalau otentikasi gagal(g d pke)
+            return redirect('sesi')->with('success', 'Berhasil login');
+         } else {
+            //kalau otentikasi gagal
             // return 'gagal';
-            return redirect('sesi')->withErrors('Username dan password yang dimasukkan tidak valid');
-        }
+            return redirect('sesi')->withErrors('Username dan password yang dimasukan tidak valid');
+         }
+        
     }
 }
-

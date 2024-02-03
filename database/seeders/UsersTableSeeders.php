@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeders extends Seeder
 {
@@ -15,13 +14,10 @@ class UsersTableSeeders extends Seeder
      */
     public function run()
     {
-        //proses memasukan data
         DB::table('users')->insert([
-            'name' => 'Rafif',
-            'email' => 'email1@gmail.com',
-            'password' => Hash::make('123456')
-
+            'name'=>'Rafif',
+            'email'=>'email1@gmail.com',
+            'password'=> Hash::make('123456')
         ]);
-
     }
 }
