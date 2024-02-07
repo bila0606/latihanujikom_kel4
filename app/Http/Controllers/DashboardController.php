@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Dashboardcontroller extends Controller
+class DashboardController extends Controller
 {
-   public function index() 
-   {
-        dd('ini adalah halaman dashboard');
-   }
+    public function index()
+    {
+        // Logika untuk halaman dashboard
+        return view('dashboard.index'); // Sesuaikan dengan struktur view Anda
+    }
 }

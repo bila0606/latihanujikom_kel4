@@ -4,56 +4,51 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-
 
 class AuthController extends Controller
+
+   
 {
-    public function login()
+
+    // Menampilkan form registrasi
+    public function create()
     {
-        return view('login'); 
+        return view('auth.register');
     }
 
-    public function register()
+    // Menangani proses registrasi
+    public function register(Request $request)
     {
-        return view('register'); 
-    }
+        $this->middleware('guest'); // Menambahkan middleware guest
 
-    public function authenticasting(Request $request)
-    {
-        $scredentials = $request->validate([
-            'username'=> ['required'],
-            'password'=> ['required'],
+        // Logika registrasi disini
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users', // Pastikan email bersifat unik pada tabel users
+            'password' => 'required|string|min:6|confirmed',
         ]);
-        
-        //cek apakah login valid
-       
-        if (Auth::attempt($credentials)) {
-             //cek apakah user status = active
-             if(Auth::user()->status != 'active'){
-                // return redirect('login')->with('status', 'Your account is not active yet. please contact 
-                // admin!');
-                Session::flash('status', 'failed');
-                Session::flash('message', 'Your account is not active yet. please contact 
-                admin!'); 
-                return redirect('/login');  
-             } 
-             //usenya admin 
-            //  $request->session()->regenerate();
-             if(Auth::user()->role_id == 1) {
-                return redirect('dashboard');
-             }
-             
-             if(Auth::user()->role_id == 2) {
-                return redirect('profile');
-
-            
-           
-        }
-        Session::flash('status', 'failed');
-        Session::flash('message', 'login Invalid');
-        return redirect('/login');
-
-        }
     }
+
+    // Menampilkan form login
+    public function login(Request $request)
+{
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required|string',
+    ]);
+
+    try {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            // Jika berhasil, redirect ke halaman setelah login
+            return redirect('/dashboard');
+        }
+    } catch (\Exception $e) {
+        // Tampilkan pesan kesalahan untuk di-debug
+        dd($e->getMessage());
+    }
+    
+    // Jika gagal, redirect kembali dengan pesan kesalahan
+    return redirect('/login')->with('error', 'Email atau password salah');
+    
+}
 }
