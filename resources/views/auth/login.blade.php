@@ -1,5 +1,3 @@
-<!-- File: resources/views/auth/login.blade.php -->
-
 @extends('template_auth.layout')
 
 @section('content')
@@ -9,7 +7,6 @@
 				<div class="wd-md-50p login d-none d-md-block page-signin-style p-5 text-white" >
 					<div class="my-auto authentication-pages">
 						<div>
-							<!-- <img src="{{asset('')}}assets/img/brand/logo-white.png" class=" m-0 mb-4" alt="logo"> -->
 							<h5 class="mb-4">KELOMPOK 4 UJIKOM GACOR</h5>
 							<p class="mb-5">APLIKASI PERPUSTAKAAN DIGITAL</p>
 							<a href="index.html" class="btn btn-success">Learn More</a>
@@ -29,14 +26,13 @@
 								<label>Password</label> 
 								<input class="form-control" placeholder="Enter your password" type="password" >
 							</div><button class="btn btn-primary btn-block">Sign In</button>
-							<div class="form-group">
-							</div><button class="btn btn-primary btn-block">Sign Out</button>
+
 						</form>
 					</div>
-					<!-- <div class="main-signin-footer mt-3 mg-t-5">
+					<div class="main-signin-footer mt-3 mg-t-5">
 						<p><a href="">Forgot password?</a></p>
 						<p>Don't have an account? <a href="page-signup.html">Create an Account</a></p>
-					</div> -->
+					</div>
 				</div>
 			</div>
 			</div>

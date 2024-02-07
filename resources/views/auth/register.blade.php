@@ -51,8 +51,7 @@
 							</div>
                             
                             <button class="btn btn-primary btn-block">Sign In</button>
-							<div class="form-group">
-							</div><button class="btn btn-primary btn-block">Sign Out</button>
+
 						</form>
 					</div>
                     

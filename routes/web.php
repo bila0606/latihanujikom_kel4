@@ -35,7 +35,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 // Rute untuk mengelola proses login
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login')->middleware('guest');
 // Rute untuk mengelola proses logout
-Route::post('/logout', 'AuthController@logout')->name('logout');
+Route::match(['get','post'],'/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
