@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	@include('-component.head')
+	@include('_component.head')
 
 	<body class="main-body app sidebar-mini ltr">
 
@@ -14,10 +14,10 @@
 	   <div class="page custom-index">
 
 			<!-- main-header -->
-			@include('-component.navheader')
+			@include('_component.navheader')
 
 			<!-- main-sidebar -->
-		@include('-component.sidebar')
+		@include('_component.sidebar')
 
 		<!-- main-content -->
 		<div class="main-content app-content">
