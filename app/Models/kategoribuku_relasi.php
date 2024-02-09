@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class kategoribuku_relasi extends Model
 {
-    use HasFactory;
+    protected $table = "kategoribuku_relasi";
+    protected $guarded = ['id'];
 }

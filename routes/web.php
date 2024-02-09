@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('template_back.index');
 });
+
+Route::get('/crud',function(){
+    return view('Buku.index');
+});
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::match(['get','post'],'/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth','roleaccess:administrator,operator']);
+
+Route::resource('/data_buku','DataBukuController')->except(['show'])->middleware(['auth','roleaccess:administrator,operator']);
