@@ -38,4 +38,5 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('login')->
 Route::match(['get','post'],'/logout', [LoginController::class, 'logout'])->name('logout');
 
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+// Route::resource('/dashboard','DashboardController')->except(['show'])->middleware(['auth','roleaccess:administrator,operator']);
+// Route::match(['get','post'],'/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth','roleaccess:administrator,operator']);

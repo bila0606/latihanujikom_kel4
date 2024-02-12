@@ -15,23 +15,24 @@
 				</div>
 				<div class="sign-up-body wd-md-50p">
 					<div class="main-signin-header">
-						<h2>Welcome back!</h2>
-						<h4>Please sign in to continue</h4>
-						<form action="index.html">
+						<h2>Selamat Datang!</h2>
+						<h4>Tolong masuk untuk melanjutkan</h4>
+						<form method="POST" action="{{ route('login') }}">
+							@csrf
 							<div class="form-group">
 								<label>Email</label>
-								<input class="form-control" placeholder="Enter your email" type="text" >
+								<input class="form-control" placeholder="Enter your email" type="text" value="admin1234@gmail.com">
 							</div>
 							<div class="form-group">
 								<label>Password</label> 
-								<input class="form-control" placeholder="Enter your password" type="password" >
-							</div><button class="btn btn-primary btn-block">Sign In</button>
+								<input class="form-control" placeholder="Enter your password" type="password"  value="admin123">
+							</div><button class="btn btn-primary btn-block">Masuk</button>
 
 						</form>
 					</div>
 					<div class="main-signin-footer mt-3 mg-t-5">
-						<p><a href="">Forgot password?</a></p>
-						<p>Don't have an account? <a href="page-signup.html">Create an Account</a></p>
+						<p><a href="">Lupa password?</a></p>
+						<p>Belum punya akun? <a href="page-signup.html">Buat akun</a></p>
 					</div>
 				</div>
 			</div>

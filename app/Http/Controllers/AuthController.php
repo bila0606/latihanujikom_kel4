@@ -19,13 +19,17 @@ class AuthController extends Controller
     // Menangani proses registrasi
     public function register(Request $request)
     {
-        $this->middleware('guest'); // Menambahkan middleware guest
+        // Menambahkan middleware guest
+        $this->middleware('guest'); 
 
         // Logika registrasi disini
         $request->validate([
-            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
             'email' => 'required|email|unique:users', // Pastikan email bersifat unik pada tabel users
             'password' => 'required|string|min:6|confirmed',
+            // 'nama lengkap' 
+            // 'alamat' 
+            // 'hak akses' 
         ]);
     }
 

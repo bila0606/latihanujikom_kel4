@@ -1,5 +1,3 @@
-<!-- File: resources/views/auth/login.blade.php -->
-
 @extends('template_auth.layout')
 
 @section('content')
@@ -9,7 +7,6 @@
 				<div class="wd-md-50p login d-none d-md-block page-signin-style p-5 text-white" >
 					<div class="my-auto authentication-pages">
 						<div>
-							<!-- <img src="{{asset('')}}assets/img/brand/logo-white.png" class=" m-0 mb-4" alt="logo"> -->
 							<h5 class="mb-4">KELOMPOK 4 UJIKOM GACOR</h5>
 							<p class="mb-5">PERPUSTAKAAN DIGITAL.</p>
 							<a href="index.html" class="btn btn-success">Learn More</a>
@@ -18,12 +15,12 @@
 				</div>
 				<div class="sign-up-body wd-md-50p">
 					<div class="main-signin-header">
-						<h2>Welcome back!</h2>
-						<h4>Please sign in to continue</h4>
-						<form action="index.html">
+						<h2>Selamat Datang!</h2>
+						<h4>Tolong buat akun untuk melanjutkan</h4>
+						<form method="POST" action="{{ route('register') }}">
 							<div class="form-group">
-								<label>Username</label
-								><input class="form-control" placeholder="Enter your username" type="text" >
+								<label>Username</label>
+								<input class="form-control" placeholder="Enter your username" type="text" >
 							</div>
                             <div class="form-group">
 								<label>Email</label>
@@ -50,15 +47,10 @@
                             </select>     
 							</div>
                             
-                            <button class="btn btn-primary btn-block">Sign In</button>
+                            <button class="btn btn-primary btn-block">Buat Akun</button>
 
 						</form>
 					</div>
-                    
-					<!-- <div class="main-signin-footer mt-3 mg-t-5">
-						<p><a href="">Forgot password?</a></p>
-						<p>Don't have an account? <a href="page-signup.html">Create an Account</a></p>
-					</div> -->
 				</div>
 			</div>
 			</div>
