@@ -1,6 +1,10 @@
-@extends('template_back.layout')
-
+@extends('template_back.content')
+@section('title', 'Dashboard')
 @section('content')
+
+@php
+    $isrole=auth()->user()->isrole;
+@endphp
 <div class="container">
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
@@ -64,7 +68,7 @@
                                 <ul>
                                     <li>
                                         <strong>Total</strong>
-                                        
+                                        <span>20</span>
                                     </li>
                                 </ul>
                             </div>
@@ -86,7 +90,7 @@
                                 <ul>
                                     <li>
                                         <strong>Total</strong>
-                            
+                                        <span>20</span>
                                     </li>
                                 </ul>
                             </div>
@@ -108,7 +112,7 @@
                                 <ul>
                                     <li>
                                         <strong>Total</strong>
-                                        
+                                        <span>20</span>
                                     </li>
                                 </ul>
                             </div>
@@ -130,7 +134,7 @@
                                 <ul>
                                     <li>
                                         <strong>Total</strong>
-                                      
+                                        <span>20</span>
                                     </li>
                                 </ul>
                             </div>
@@ -166,5 +170,7 @@
     
     </div>
 </div>
+
+
 
 @endsection
