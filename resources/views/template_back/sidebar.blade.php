@@ -57,8 +57,8 @@
                     <li class="slide @if($segment1=='dashboard') is-expanded @endif">
                         <a class="side-menu__item @if($segment1=='dashboard') active @endif" href="{{ route('dashboard') }}" title="Dashboard"><i class="side-menu__icon fe fe-airplay"></i><span class="side-menu__label">Dashboard</span></a>
                     </li>
-                    <li class="slide @if(in_array(''.$segment1.'',array('data_barang'))) is-expanded @endif">
-                        <a class="side-menu__item @if(in_array(''.$segment1.'',array('data_barang'))) active @endif" href="" title="Data Barang"><i class="side-menu__icon fe fe-fe fe-box"></i><span class="side-menu__label">Data Barang</span></a>
+                    <li class="slide @if(in_array(''.$segment1.'',array('data_buku'))) is-expanded @endif">
+                        <a class="side-menu__item @if(in_array(''.$segment1.'',array('data_buku'))) active @endif" href="" title="Data Buku"><i class="side-menu__icon fe fe-fe fe-box"></i><span class="side-menu__label">Data Buku</span></a>
                     </li>
                     
                     <li class="slide @if(in_array(''.$segment1.'',array('data_pengguna'))) is-expanded @endif">

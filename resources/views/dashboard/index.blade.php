@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h6 class="card-title">Data Barang</h6>
+                                <h6 class="card-title">Data Buku</h6>
                                 <ul>
                                     <li>
                                         <strong>Total</strong>
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h6 class="card-title">Kategori Barang </h6>
+                                <h6 class="card-title">Kategori Buku </h6>
                                 <ul>
                                     <li>
                                         <strong>Total</strong>
@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h6 class="card-title">Barang Expired</h6>
+                                <h6 class="card-title">Tahun terbit</h6>
                                 <ul>
                                     <li>
                                         <strong>Total</strong>

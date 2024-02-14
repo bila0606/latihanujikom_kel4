@@ -1,5 +1,5 @@
 @extends('template_back.content')
-@section('title', 'Data Barang')
+@section('title', 'Data Buku')
 @section('content')
 
 @php 
