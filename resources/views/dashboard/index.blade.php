@@ -1,6 +1,10 @@
-@extends('template_back.layout')
-
+@extends('template_back.content')
+@section('title', 'Dashboard')
 @section('content')
+
+@php
+    $isrole=auth()->user()->isrole;
+@endphp
 <div class="container">
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
@@ -60,11 +64,11 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h6 class="card-title">Data Barang</h6>
+                                <h6 class="card-title">Data Buku</h6>
                                 <ul>
                                     <li>
                                         <strong>Total</strong>
-                                        
+                                        <span>20</span>
                                     </li>
                                 </ul>
                             </div>
@@ -82,11 +86,11 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h6 class="card-title">Kategori Barang </h6>
+                                <h6 class="card-title">Kategori Buku </h6>
                                 <ul>
                                     <li>
                                         <strong>Total</strong>
-                            
+                                        <span>20</span>
                                     </li>
                                 </ul>
                             </div>
@@ -104,11 +108,11 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h6 class="card-title">Barang Expired</h6>
+                                <h6 class="card-title">Tahun terbit</h6>
                                 <ul>
                                     <li>
                                         <strong>Total</strong>
-                                        
+                                        <span>20</span>
                                     </li>
                                 </ul>
                             </div>
@@ -130,7 +134,7 @@
                                 <ul>
                                     <li>
                                         <strong>Total</strong>
-                                      
+                                        <span>20</span>
                                     </li>
                                 </ul>
                             </div>
@@ -166,5 +170,7 @@
     
     </div>
 </div>
+
+
 
 @endsection
