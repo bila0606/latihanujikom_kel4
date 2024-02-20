@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\BukuController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +14,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//view welcome
-Route::get('/', function () {
-    return view('home', ['title' => 'Home']);
-})->name('home');
 
-Route::get('register', [UserController::class, 'register'])->name('register');
-Route::post('register', [UserController::class, 'register_action'])->name('register.action');
-Route::get('login', [UserController::class, 'login'])->name('login');
-Route::post('login', [UserController::class, 'login_action'])->name('login.action');
-Route::post('password', [UserController::class, 'password'])->name('password');
-Route::post('password', [UserController::class, 'password_action'])->name('password.action');
-Route::post('logout', [UserController::class, 'logout'])->name('logout');
+// Route::get('/', function () {
+//     return view('_template_back.layout');
+// });
+
+// ROUTE BARU
+Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/auth', [LoginController::class, 'auth'])->name('auth');
+
+//ROUTE CRUD BUKU
+Route::resource('buku', BukuController::class)->middleware('auth');
+Route::get('export_pdf_buku', [BukuController::class, 'export_pdf'])->name('export_pdf_buku');

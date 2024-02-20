@@ -5,7 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class kategoribuku_relasi extends Model
+class KategoriBuku_Relasi extends Model
 {
     use HasFactory;
+    protected $guarded = ['id']; //MENGATUR HANYA COLUMN ID BUKU YANG TIDAK BOLEH DI ISI
+
+    //RELASI DARI MODEL BUKU KE KATEGORI BUKU RELASI
+    public function buku(){
+        return $this->belongsTo(Buku::class);
+    }
+
+    //RELASI DARI MODEL KATEGORI BUKU KE KATEGORI BUKU RELASI
+    public function kategori(){
+        return $this->belongsTo(KategoriBuku::class);
+    }
 }
