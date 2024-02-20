@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class peminjaman extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'buku_id',
+        'TaggalPeminjaman',
+        'TaggalPengembalian',
+        'StatusPeminjaman'     ];
 }

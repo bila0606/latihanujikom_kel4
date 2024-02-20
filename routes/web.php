@@ -71,9 +71,16 @@ Route::get('/export_pdf_datapengguna', [PenggunaController::class, 'export_pdf']
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
 Route::get('/kategori/input', [KategoriController::class, 'input'])->name('kategori_input');
 Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori/store');
+Route::delete('/kategori/destroy/{id}', [KategoriController::class, 'destroy'])->name('kategori_destroy');
+Route::put('/kategori/update/{id}', [PenggunaController::class, 'update'])->name('data-pengguna_update');
 
-
-Route::get('/ulasanBuku', [UlasanBukuController::class, 'index'])->name('ulasanBuku');
+//ULASAN BUKU
+Route::get('/ulasanBuku', [UlasanBukuController::class, 'index'])->name('ulasan_buku');
+Route::get('/ulasanBuku/input', [UlasanBukuController::class, 'input'])->name('ulasan_buku/input');
+Route::post('/ulasanBuku/store{id}', [UlasanBukuController::class, 'store'])->name('ulasan_buku/store');
+Route::get('/ulasanBuku/edit/{id}', [UlasanBukuController::class, 'edit'])->name('ulasan_buku/edit');
+Route::post('/ulasanBuku/create', [UlasanBukuController::class, 'store'])->name('ulasan_buku/create');
+Route::delete('/ulasanBuku/destroy/{id}', [UlasanBukuController::class, 'destroy'])->name('ulasan_buku_destroy');
 
 //ROUTE KOLEKSI PRIBADI
 Route::get('/koleksi', [KoleksiController::class, 'index'])->name('koleksi');
@@ -81,5 +88,6 @@ Route::get('/koleksi/input', [KoleksiController::class, 'input'])->name('koleksi
 Route::post('/koleksi/store{id}', [KoleksiController::class, 'store'])->name('koleksi/store');
 Route::get('/koleksi/edit/{id}', [koleksiController::class, 'edit'])->name('koleksi_edit');
 Route::post('/koleksi/create', [KoleksiController::class, 'store'])->name('koleksi-create');
+Route::delete('/kategori/destroy/{id}', [KategoriController::class, 'destroy'])->name('kategori_destroy');
 
 

@@ -8,55 +8,28 @@ use Illuminate\Routing\Controller;
 
 class UlasanBukuController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    //  public function index()
-    //  {
-    //      $ulasanbuku = UlasanBuku::with('user','buku')->orderBy('id','desc')->get();
-    //      return view('ulasan_buku.index', compact('ulasan_buku'));
-    //  }
-
     public function index()
     {
-        $ulasanbuku = UlasanBuku::with('user','buku')->orderBy('id','desc')->get();
+        $ulasanbuku = UlasanBuku::with('user', 'buku')->orderBy('id', 'desc')->get();
         return view('ulasan_buku.index', compact('ulasanbuku'));
     }
 
-
-     public function input(Request $request)
-     {
-         return view("ulasan_buku.formInput");
-     }
-
-
-    // public function index()
-    // {
-    //     $ulasanbuku = UlasanBuku::all{};
-    //     return view('ulasan_buku.index');
-    // }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function input()
     {
-        //
+        return view('ulasan_buku.formInput');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
+        // Validasi form sebelum menyimpan data
+        $request->validate([
+            'user_id' => 'required',
+            'buku_id' => 'required',
+            'ulasan' => 'required', // Pastikan kolom ulasan tidak boleh kosong
+            'rating' => 'required',
+        ]);
+
+        // Buat data ulasan buku baru
         UlasanBuku::create([
             'user_id' => $request->user_id,
             'buku_id' => $request->buku_id,
@@ -67,56 +40,32 @@ class UlasanBukuController extends Controller
         return redirect()->route('ulasan_buku')->with('success', 'Data berhasil disimpan');
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        $ulasanbuku = UlasanBuku::findorfail($id);
+        $ulasanbuku = UlasanBuku::findOrFail($id);
         return view('ulasan_buku.formEdit', compact('ulasanbuku'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        $ulasanbuku = UlasanBuku::findorfail($id);
+        // Validasi form sebelum menyimpan data
+        $request->validate([
+            'user_id' => 'required',
+            'buku_id' => 'required',
+            'ulasan' => 'required', // Pastikan kolom ulasan tidak boleh kosong
+            'rating' => 'required',
+        ]);
+
+        // Perbarui data ulasan buku yang ada
+        $ulasanbuku = UlasanBuku::findOrFail($id);
         $ulasanbuku->update($request->all());
 
         return redirect()->route('ulasan_buku')->with('success', 'Data berhasil diupdate');
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        $ulasanbuku = UlasanBuku::findorfail($id);
-
+        $ulasanbuku = UlasanBuku::findOrFail($id);
         $ulasanbuku->delete();
 
         return redirect()->route('ulasan_buku')->with('success', 'Data berhasil dihapus');

@@ -38,7 +38,7 @@
                                     <a class="dropdown-item" href="javascript:void(0)" onclick="exportExcel()">Excel</a>
                                     <a class="dropdown-item" href="javascript:void(0)" onclick="exportPdf()">PDF</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,9 +48,9 @@
                 @include('_component.message')
                 <div class="row">
                     <div class="col-md-3">
-                        <label class="form-labe l mt-2 mb-0">Kategori Buku</label> 
+                        <label class="form-labe l mt-2 mb-0">Kategori Buku</label>
                         <select id="f1" class="form-control select2" onchange="reload_table()">
-                            @php $db = DB::table('buku')->select('*')->orderBy('judul','ASC')->get(); @endphp
+                            @php $db = DB::table('bukus')->select('*')->orderBy('judul','ASC')->get(); @endphp
                             <option value="">=== semua ===</option>
                             @foreach($db as $key => $val)
                             <option value="{{$val->id}}" @if(request()->get('f1')==$val->id) selected @endif>{{$val->judul}}</option>
@@ -74,7 +74,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{$item->user->username??''}}</td>
-                                <td>{{$item->buku->judul??''}}</td>
+                                <td>{{$item->bukus->judul??''}}</td>
                                 <td>
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="" method="POST">
                                         @csrf
@@ -97,7 +97,7 @@
        $(function() {
                 // formelement
                 $('.select2').select2({ width: 'resolve' });
-                
+
                 // init datatable.
                 $('#basic-datatable').DataTable({
                     "paging": true,
@@ -111,5 +111,5 @@
 
             });
 </script>
-    
+
 @endsection

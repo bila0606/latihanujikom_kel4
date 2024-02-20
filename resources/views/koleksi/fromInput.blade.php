@@ -31,7 +31,7 @@
                     @include('_component.message')
                     <div class="pd-10 pd-sm-20 bg-gray-100">
                         <form action="{{ route('koleksi-create')}}" method="post" enctype="multipart/form-data">
-                          
+
                             @csrf
                         <div class="row">
                         <div class="col-md-12"
@@ -43,8 +43,8 @@
                                         </div>
                                         <div class="col-md-9 mg-t-5 mg-md-t-0">
                                             <select class="form-control select2" name="user_id">
-                                                @php 
-                                                $koleksi = DB::table('users')->select('*')->orderBy('username','ASC')->get(); 
+                                                @php
+                                                $koleksi = DB::table('users')->select('*')->orderBy('username','ASC')->get();
                                                 @endphp
                                                 <option value="">=== pilih ===</option>
                                                 @foreach($koleksi as $key => $val)
@@ -62,11 +62,11 @@
                                         </div>
                                         <div class="col-md-9 mg-t-5 mg-md-t-0">
                                             <select class="form-control select2" name="buku_id">
-                                                @php 
-                                                $buku = DB::table('buku')->select('*')->orderBy('judul','ASC')->get(); 
+                                                @php
+                                                $bukus = DB::table('bukus')->select('*')->orderBy('judul','ASC')->get();
                                                 @endphp
                                                 <option value="">=== pilih ===</option>
-                                                @foreach($buku as $key => $val)
+                                                @foreach($bukus as $key => $val)
                                                 <option value="{{$val->id}}" @if(old("buku_id")==$val->id) selected @endif>{{$val->judul}}</option>
                                                 @endforeach
                                             </select>
@@ -100,7 +100,7 @@
         //formplugin
         $('.select2').select2();
         $('#datepickerA,#datepickerB').datepicker({
-            format: 'dd/mm/yyyy', 
+            format: 'dd/mm/yyyy',
             autoclose: true,
             todayHighlight: true,
         });

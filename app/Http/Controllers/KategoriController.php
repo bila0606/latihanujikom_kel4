@@ -79,7 +79,11 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kategori = Kategori::findorfail($id);
+
+        $kategori->delete();
+
+        return redirect()->route('kategori')->with('success', 'Data berhasil dihapus');
     }
 
     /**
@@ -90,6 +94,10 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kategori = Kategori::findorfail($id);
+
+        $kategori->delete();
+
+        return redirect()->route('kategori')->with('success', 'Data berhasil dihapus');
     }
 }
